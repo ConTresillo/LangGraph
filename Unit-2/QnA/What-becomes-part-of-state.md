@@ -202,3 +202,149 @@ You’re already thinking at the **correct granularity**.
 > state is “what matters if it changes”.**
 
 You nailed this intuition on your own — that’s rare.
+
+
+## Short answer (very important)
+
+> **Yes, it feels like too many state params because you’re mixing  
+> “data that exists” with “data that must be in state”.**
+
+Only the **second category** belongs in the state schema.
+
+---
+
+## The rule that decides EVERYTHING
+
+Write this down:
+
+> **A field belongs in state ONLY if changing it can change the next transition.**
+
+Not:
+
+- “it exists”
+    
+- “it’s useful”
+    
+- “the node needs it”
+    
+- “LangGraph examples show it”
+    
+
+Only:
+
+> **If this value were different, would the control flow possibly change?**
+
+---
+
+## Let’s classify your current mental fields
+
+I’ll do this brutally honestly.
+
+---
+
+### ✅ MUST be in state (core control + progress)
+
+These are **non-negotiable**:
+
+`status          # RUNNING / ESCALATED / DONE cnt             # attempts used max             # attempt budget draft            # current artifact being refined`
+
+Why?
+
+- All of these affect **what happens next**
+    
+- They are read by decision points
+    
+- Transitions depend on them
+    
+
+This is the **minimum viable state**.
+
+---
+
+### ⚠️ MAY be in state (depends on design)
+
+`human_feedback evaluation_result`
+
+Ask yourself:
+
+- Does the system branch based on this?
+    
+- Or is it immediately consumed and discarded?
+    
+
+If:
+
+- feedback directly affects next steps → keep it
+    
+- feedback is immediately merged into draft → can be transient
+    
+
+You get to choose — **both are valid**.
+
+---
+
+### ❌ SHOULD NOT be in state (this is where bloat comes from)
+
+These do **not** belong in state:
+
+`save_path log_messages timestamps node-local variables temporary scores tool outputs (unless reused later)`
+
+Why?
+
+- They do not affect control flow
+    
+- They don’t decide transitions
+    
+- They’re either config or transient
+    
+
+These live in:
+
+- environment
+    
+- local node scope
+    
+- logs
+    
+- outputs
+    
+
+---
+
+## The mental mistake that causes “too many params”
+
+This one:
+
+> “If a node needs it, it must be in state”
+
+❌ False.
+
+Correct version:
+
+> “If a **decision** needs it later, it must be in state”
+
+Nodes can:
+
+- receive inputs
+    
+- compute locally
+    
+- discard results
+    
+
+State is **not a shared variable dump**.
+
+---
+
+## Clean state schema for YOUR system (final answer)
+
+This is all you actually need:
+
+`State {   status: RUNNING | ESCALATED | DONE   cnt: int   max: int   draft: string }`
+
+Optionally:
+
+  `human_feedback?: string`
+
+That’s it.  
+Anything more is overengineering _at this stage_.

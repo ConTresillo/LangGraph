@@ -176,3 +176,135 @@ The answer should be:
 Not:
 
 > “Because it couldn’t think.”
+
+
+## Short answer (clear it up immediately)
+
+> **Escalation _is_ a state — but it is a _mode_, not a box in your main flow.**
+
+In your diagram, **escalation already exists**, but it’s **implicit**, not labeled.
+
+Let’s make it explicit without adding clutter.
+
+---
+
+## Where escalation is in _your_ diagram
+
+This moment 👇 is the escalation:
+
+`Check cntr > max  →  yes`
+
+At that instant, the system does:
+
+`state.status = ESCALATED`
+
+Then it **enters** the node:
+
+`Human gives suggestion`
+
+So in your design:
+
+- **Escalation state = the period where the system is waiting on human**
+    
+- Visually represented by the **Human gives suggestion** node
+    
+- Semantically represented by:
+    
+    `status = ESCALATED`
+    
+
+You didn’t draw a box called “ESCALATED”, but the behavior is there.
+
+---
+
+## Why escalation doesn’t look like other states
+
+Because escalation is **not a workflow step** like:
+
+- make draft
+    
+- evaluate
+    
+- refine
+    
+
+It is a **suspension of autonomy**.
+
+So escalation is best understood as:
+
+> “The system is paused, autonomy revoked, waiting for authority.”
+
+That’s why it maps cleanly to:
+
+`status = WAITING_FOR_HUMAN   (aka ESCALATED)`
+
+Same thing. Different name.
+
+---
+
+## Two equivalent (correct) ways to model it
+
+### ✅ Option 1 — Explicit escalation state (more formal)
+
+You _could_ draw:
+
+`RUNNING    ↓ (cnt > max) ESCALATED    ↓ (human input) RUNNING`
+
+Here:
+
+- ESCALATED is a visible state box
+    
+- Human interaction happens _inside_ it
+    
+
+---
+
+### ✅ Option 2 — Implicit escalation (what you did)
+
+You drew:
+
+`Check cnt > max    ↓ Human gives suggestion`
+
+With the **understanding** that:
+
+- entering this node implies `status = ESCALATED`
+    
+
+This is **perfectly valid** and very common.
+
+---
+
+## Why you should NOT add escalation everywhere
+
+Do **not** do this ❌:
+
+- separate ESCALATED box
+    
+- separate HUMAN box
+    
+- separate WAITING box
+    
+
+That fragments one idea into many boxes and causes confusion.
+
+Escalation + waiting-for-human are the **same mode**.
+
+---
+
+## Clean mental model (lock this in)
+
+- **Escalation is a state value**
+    
+- **Human interaction is an action that happens while in that state**
+    
+
+So you can say either:
+
+- “We enter ESCALATED, then wait for human”
+    
+- or
+    
+- “We wait for human, which implies escalation”
+    
+
+Both mean the same thing.

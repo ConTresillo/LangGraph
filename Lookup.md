@@ -137,14 +137,34 @@
 - Observation feedback  
 - Iterative reasoning cycles  
 
-### Submodule 2.4.2: Reflexion Pattern
+### Submodule 2.4.2: Plan-and-Execute Pattern
+- Explicit planning phase  
+- Plan as an artifact, not authority  
+- Separation of planning and execution  
+- Failure of long-horizon plans  
+- Why replanning is unavoidable
+
+### Submodule 2.4.3: RAG (Retrieval-Augmented Generation) Pattern
+- Retrieval as a tool, not memory  
+- Query formulation as a control decision  
+- Context injection vs state mutation  
+- Retrieval timing (when / how often)  
+- Failure modes: stale context, overload, bias  
+
+### Submodule 2.4.4: Reflexion Pattern
 
 - Self-critique  
 - Revision loops  
 - Error-driven improvement  
 - Separation of responder and reviser  
 
-### Submodule 2.4.3: Multi-Agent Coordination
+### Submodule 2.4.5: Self-Routing / Role-Switching Agent
+- Single agent, multiple roles  
+- Internal routing decisions  
+- Context-dependent behavior  
+- Failure modes of role confusion  
+
+### Submodule 2.4.6: Multi-Agent Coordination
 
 - Hierarchical agents  
 - Head agent orchestration  

@@ -1,6 +1,12 @@
-## 🧩 Submodule 2.2.1
 
-# **What Is State (Really)?**
+
+# 🧱 UNIT 2: CONTROL
+
+## 📦 Module 2.2 — State as a First-Class Citizen
+
+# 🧩 Submodule 2.2.1
+
+## **What Is State (Really)?**
 
 No jargon. No libraries.
 
@@ -171,11 +177,7 @@ Using your existing diagram:
 
 If you end with **5–8 items**, you’re doing it right.
 
-# 🧱 UNIT 2: CONTROL
-
-## 📦 Module 2.2 — State as a First-Class Citizen
-
-### 🧩 **Submodule 2.2.2: State Transitions & Invariants**
+# 🧩 **Submodule 2.2.2: State Transitions & Invariants**
 
 If you understand this, **agents stop feeling mysterious**.
 
@@ -416,3 +418,4 @@ You have learned:
     
 
 This is the **entire control layer**.
+

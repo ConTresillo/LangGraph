@@ -1,4 +1,4 @@
-### 🧩 **Submodule 2.4.1: ReAct Pattern**
+# 🧩 **Submodule 2.4.1: ReAct Pattern**
 
 This is the **first named agent pattern** — and it’s foundational.
 

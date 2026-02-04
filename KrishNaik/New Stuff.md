@@ -1,0 +1,36 @@
+- Reducer
+- graph.stream()
+- annotation
+- add_message() annotation
+- Binded tools
+- Docstring for Tool node
+- Input and Output for tools
+- Tool condition
+- Tool call
+- toolset
+- tool can be API or custom fxn
+- langgraph.prebuilt has ToolNode
+- pretty_print()
+- without reAct multiple tool calls not possible?
+- Seems like heterogenous tool calls not possible
+- same tool can be reused even without reAct architecture?
+- news search and multiply
+- without reAct `multiply 2 by 3 then by 5` correctly gives `30`
+- but news and multiply doesnt happen only one happens
+- Memory check pointer
+- `langgraph.checkpointer.memory import MemorySaver`
+- thread_id?
+- config = {configurable : {thread_id : id}}
+- Context given
+- streaming?
+- sync stream() async astream()
+- modes
+- update (replace) and value (append)
+- chunks?
+- human in the loop
+- human feedback
+- human assistance as tool?
+- interrupt
+- human_response query returned?
+- `Command()`?
+- 
